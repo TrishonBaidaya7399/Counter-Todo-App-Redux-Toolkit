@@ -15,13 +15,14 @@
 // export const {getAllTodo} = todoSlice.actions;
 // export default todoSlice.reducer;
 
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchTodos = createAsyncThunk("todo/fetchTodos", async () => {
-  const response = await axios.get("https://jsonplaceholder.typicode.com/todos");
-//   console.log(response.data);
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/todos"
+  );
+
   return response.data;
 });
 
