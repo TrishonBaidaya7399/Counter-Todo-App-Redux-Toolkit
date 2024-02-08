@@ -20,7 +20,7 @@ import axios from "axios";
 
 export const fetchTodos = createAsyncThunk("todo/fetchTodos", async () => {
   const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/todos"
+    "https://jsonplaceholder.typicode.com/todo"
   );
 
   return response.data;
@@ -28,7 +28,7 @@ export const fetchTodos = createAsyncThunk("todo/fetchTodos", async () => {
 
 export const todoSlice = createSlice({
   name: "todo",
-  initialState: { todo: [], isLoading: true, error: null },
+  initialState: { todo: [], isLoading: true, error: "" },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchTodos.pending, (state) => {

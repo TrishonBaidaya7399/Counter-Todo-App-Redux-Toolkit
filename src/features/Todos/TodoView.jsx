@@ -6,7 +6,7 @@ import Cart from "./Cart";
 const TodoView = () => {
   const [showAll, setShowAll] = useState(false);
   const { isLoading, todo, error } = useSelector((state) => state.todo);
-  console.log(todo);
+  console.log(error);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchTodos ());
@@ -16,8 +16,8 @@ const TodoView = () => {
   return (
     <div>
       <h1>TODOs APP</h1>
-      {isLoading && <p style={{backgroundColor:"transparent", color:"white"}}>Loading...</p>}
-      {error && <p style={{backgroundColor:"transparent", color:"white"}}>Error: {error.message}</p>}
+      {isLoading && <p style={{backgroundColor:"transparent", color:"yellow"}}>Loading...</p>}
+      {error && <p style={{backgroundColor:"transparent", color:"red"}}>Error: {error}</p>}
       {todo && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
           {displayAll.map((todo) => {
